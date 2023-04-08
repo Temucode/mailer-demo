@@ -8,6 +8,10 @@ class User < ApplicationRecord
 
   after_create :send_welcome_email
 
+  def name
+    email
+  end
+
   private
 
   def send_welcome_email

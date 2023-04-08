@@ -23,6 +23,7 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
 
+    # il faut bien ajouter le .deliver_now pour envoyer le mail.
     RestaurantMailer.creation_confirmation(@restaurant).deliver_now
 
       if @restaurant.save
